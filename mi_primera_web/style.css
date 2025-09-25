@@ -1,0 +1,21 @@
+body{
+    background-image: url(./fondo.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+}
+h1{
+    color: orange;
+    font-size: 80px;
+}
+main p{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+}
