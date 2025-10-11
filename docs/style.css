@@ -26,21 +26,6 @@ header img {
 .list-group-item{
   border: none; /*Le quito el border a la lista*/
 }
-.card{
+.card, .card-header{
   border:none;
 }
-.card-header{
-  border:none
-}
-/*Footer*/
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-}
-
