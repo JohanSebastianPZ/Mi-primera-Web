@@ -20,24 +20,25 @@
 						</a>
 					</div>
 
-					<button class="menu-toggle">☰</button>
-
-					<ul class="nav-links">
-						<li><a href="#">Projects</a></li>
-						<li><a href="#">Plans</a></li>
-						<li><a href="#">Books</a></li>
-						<li><a href="#">Movies</a></li>
-						<li><a href="#">Message</a></li>
-						<li><a href="#">Exercises</a></li>
-						<li><a href="#">Habits</a></li>
-						<li><a href="#">Shopping</a></li>
-						<li><a href="#" class="btn">User</a></li>
-					</ul>
+					<div class="nav-menu-wrapper">
+                        <ul class="nav-links" id="nav-menu">
+                            <li class="nav-item"><a href="index.html">Projects</a></li>
+                            <li class="nav-item"><a href="#">Plans</a></li>
+                            <li class="nav-item"><a href="#">Books</a></li>
+                            <li class="nav-item"><a href="#">Movies</a></li>
+                            <li class="nav-item"><a href="#">Messages</a></li>
+                            <li class="nav-item"><a href="#">Exercises</a></li>
+                            <li class="nav-item"><a href="#">Habits</a></li>
+                            <li class="nav-item"><a href="#">Shopping</a></li>
+                            <li class="list-group-item"><a href="profile.html" class="btn">User</a></li>
+                        </ul>
+                    </div>
 				</div>
 			</nav>
 		</header>
 
 		<div class="main">
+			<!-- Menú lateral CRUD -->
 			<aside class="sidebar">
 				<ul>
 					<li><a href="#" class="btn">Create</a></li>
@@ -46,67 +47,90 @@
 					<li><a href="#" class="btn">Delete</a></li>
 				</ul>
 			</aside>
-                <!-- Menú de navegación -->
-                <div class="collapse navbar-collapse ms-auto" id="navbarTogglerDemo03">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" href="#">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="#">Plans</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="#">Books</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="#">Movies</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="#">Message</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="#">Exercises</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="#">Habits</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="#">Shopping</a></li>
-                        <li class="list-group-item"><a href="profile.html" class="btn btn-dark w-100">User</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+
+			<!-- Tablero Kanban -->
+			<section class="kanban">
+				<div class="card">
+					<div class="card-header">DO</div>
+					<ul class="card-body">
+						<li>
+							<input type="checkbox" id="checkbox1" />
+							<label for="checkbox1">First checkbox</label>
+						</li>
+						<li>
+							<input type="checkbox" id="checkbox2" />
+							<label for="checkbox2">Second checkbox</label>
+						</li>
+						<li>
+							<input type="checkbox" id="checkbox3" />
+							<label for="checkbox3">Third checkbox</label>
+						</li>
+					</ul>
+				</div>
 
 				<div class="card">
 					<div class="card-header">DOING</div>
 					<ul class="card-body">
-						<li><input type="checkbox" id="checkbox4" /><label for="checkbox4">First checkbox</label></li>
-						<li><input type="checkbox" id="checkbox5" /><label for="checkbox5">Second checkbox</label></li>
-						<li><input type="checkbox" id="checkbox6" /><label for="checkbox6">Third checkbox</label></li>
+						<li>
+							<input type="checkbox" id="checkbox4" />
+							<label for="checkbox4">First checkbox</label>
+						</li>
+						<li>
+							<input type="checkbox" id="checkbox5" />
+							<label for="checkbox5">Second checkbox</label>
+						</li>
+						<li>
+							<input type="checkbox" id="checkbox6" />
+							<label for="checkbox6">Third checkbox</label>
+						</li>
 					</ul>
 				</div>
 
 				<div class="card">
 					<div class="card-header">DONE</div>
 					<ul class="card-body">
-						<li><input type="checkbox" id="checkbox7" /><label for="checkbox7">First checkbox</label></li>
-						<li><input type="checkbox" id="checkbox8" /><label for="checkbox8">Second checkbox</label></li>
-						<li><input type="checkbox" id="checkbox9" /><label for="checkbox9">Third checkbox</label></li>
+						<li>
+							<input type="checkbox" id="checkbox7" />
+							<label for="checkbox7">First checkbox</label>
+						</li>
+						<li>
+							<input type="checkbox" id="checkbox8" />
+							<label for="checkbox8">Second checkbox</label>
+						</li>
+						<li>
+							<input type="checkbox" id="checkbox9" />
+							<label for="checkbox9">Third checkbox</label>
+						</li>
 					</ul>
 				</div>
 			</section>
 		</div>
-		
-		<!-- Footer -->
+
 		<footer class="footer">
 			<div class="footer-container">
+				<!-- Span centrado en móvil -->
 				<span class="footer-text">
 					© 2025
 					<a href="#">My Life™</a>
 					. All Rights Reserved.
 				</span>
+
+				<!-- Lista de enlaces -->
 				<ul class="footer-links">
 					<li>
-						<i class="uil uil-github"></i>
+						<i class="icon-github"></i>
 						<a href="#">GitHub</a>
 					</li>
 					<li>
-						<i class="uil uil-linkedin"></i>
-						<a href="#">LinkedIn</a>
+						<i class="icon-linkedin"></i>
+						<a href="#">Linkedin</a>
 					</li>
 					<li>
-						<i class="uil uil-envelope"></i>
+						<i class="icon-email"></i>
 						<a href="#">Email</a>
 					</li>
 					<li>
-						<i class="uil uil-phone"></i>
+						<i class="icon-phone"></i>
 						<a href="#">Contact</a>
 					</li>
 				</ul>
