@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./Logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg bg-white p-0">
+            <div class="container-fluid">
+                
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">
+                    <img src="./Logo.png" alt="Logo" style="max-height:50px;">
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <!-- Navigation Menu -->
+            <div class="collapse navbar-collapse ms-auto" id="navbarTogglerDemo03">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Plans</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Books</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Movies</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Messages</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Exercises</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Habits</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Shopping</a></li>
+                    <li class="list-group-item"><a href="profile.html" class="btn btn-dark w-100">User</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="d-flex">
+        <div class="container-fluid mt-4">
+            <div class="row align-items-center">
+                
+                <!-- Photo -->
+                <div class="col-3 text-center pe-0">
+                    <img src="./avatar.png" alt="User Avatar" class="img-fluid rounded-circle" style="width:300px; height:300px; object-fit:cover;">
+                    <p class="mt-2 fw-semibold">Username</p>
+                </div>
+                
+                <!-- Buttons -->
+                <div class="col-2 d-flex flex-column justify-content-evenly align-items-center p-0" style="height: 50vh;">
+                    <button type="button" class="btn btn-success" style="width: 74%; height: 50px;">Completed</button>
+                    <button type="button" class="btn btn-danger" style="width: 74%; height: 50px;">Pending</button>
+                    <button type="button" class="btn btn-warning" style="width: 74%; height: 50px;">In Progress</button>
+                </div>
+
+                <!-- Form -->
+                <div class="col-7 pe-4">
+                    <form>
+                        <fieldset disabled>
+                            <div class="mb-3">
+                                <label class="form-label">Username</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Register Date</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </fieldset>
+                    </form>
+                    <div class="d-flex justify-content-end mt-4 gap-2 pe-3">
+                        <button type="button" class="btn btn-primary" style="width: 24%; height: 50px;">Update</button>
+                        <button type="button" class="btn btn-danger" style="width: 24%; height: 50px;">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Activities Table -->
+    <section class="container my-5">
+        <h2 class="mb-3">Pending Activities</h2>
+        <table class="table table-bordered">
+            <caption>Summary of completed and pending activities</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Task</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Study HTML</th>
+                    <td>Completed</td>
+                </tr>
+                <tr>
+                    <th scope="row">Design wireframe</th>
+                    <td>In progress</td>
+                </tr>
+                <tr>
+                    <th scope="row">Review CSS</th>
+                    <td>Pending</td>
+                </tr>
+                <tr>
+                    <th scope="row">Test form</th>
+                    <td>Pending</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Google Maps -->
+    <div class="container-fluid my-5">
+        <div style="height: 400px;">
+            <iframe 
+                class="rounded-3 border border-dark w-100 h-100"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.3133753637608!2d2.16687727655857!3d41.410715571296954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3ed552af55b%3A0x519ed8fb6d888ee8!2sILERNA%20Barcelona%20-%20Centre%20de%20Formaci%C3%B3%20Professional!5e0!3m2!1sen!2ses!4v1760121130134!5m2!1sen!2ses" 
+                allowfullscreen 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="border-top: 1px solid gray; padding: 3rem 7rem 3rem 7rem;">
+        <div class="d-flex justify-content-between">
+            <!-- Copyright -->
+            <div class="d-flex gap-4 align-items-center">
+                <img src="./Logo.png" alt="Logo" style="height:50px;">
+                <p class="mb-0">&copy; 2025 Company, Inc.</p>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="d-flex gap-3">
+                <img src="/github.png" alt="GitHub" style="height:40px;">
+                <img src="/instagram.png" alt="Instagram" style="height:40px;">
+                <img src="/whatsapp.png" alt="WhatsApp" style="height:40px;">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
