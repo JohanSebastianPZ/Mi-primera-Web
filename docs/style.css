@@ -556,6 +556,11 @@ img{
     height: 100%; 
     display: block;
 }
+.pictures{
+	display: flex;
+	justify-content: center;
+	padding: 30px;
+}
 
 /* ======== RESPONSIVE (Ajustes para móvil/tableta) ======== */
 
