@@ -3,170 +3,204 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>My First Website</title>
-		<link rel="stylesheet" href="style.css" />
+		<title>My Life</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 		<link rel="shortcut icon" href="img/Logo.png" type="image/x-icon" />
 	</head>
 
-	<body>
-		<header>
-			<nav class="navbar">
-				<div class="container">
-					<div class="logo-container">
-						<img src="img/Logo.png" alt="Mi" class="logo-img" />
-						<a href="#" class="logo-link">
-							<span class="logo-text">My Life</span>
-						</a>
+	<body class="font-sans bg-gray-50 text-gray-800">
+		<header class="shadow-md bg-white sticky top-0 z-10">
+			<nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-between items-center h-16">
+					<div class="flex items-center space-x-2">
+						<img src="img/Logo.png" alt="Mi" class="h-8 w-8 rounded-full" />
+						<a href="#" class="text-xl font-bold text-indigo-600 hover:text-indigo-800 transition duration-150">My Life</a>
 					</div>
 
-					<button class="menu-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+					<button id="menu-toggle" class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+					</button>
 
-					<div class="nav-menu-wrapper">
-						<ul class="nav-links" id="nav-menu">
-							<li class="nav-item"><a href="index.html">Projects</a></li>
-							<li class="nav-item"><a href="#">Plans</a></li>
-							<li class="nav-item"><a href="#">Books</a></li>
-							<li class="nav-item"><a href="#">Movies</a></li>
-							<li class="nav-item"><a href="#">Messages</a></li>
-							<li class="nav-item"><a href="#">Exercises</a></li>
-							<li class="nav-item"><a href="#">Habits</a></li>
-							<li class="nav-item"><a href="#">Shopping</a></li>
-							<li class="list-group-item"><a href="profile.html" class="btn">User</a></li>
+					<div id="nav-menu-wrapper" class="hidden md:block">
+						<ul id="nav-menu" class="flex flex-col md:flex-row md:space-x-4 lg:space-x-8 items-center">
+							<li class="p-2 md:p-0"><a href="index.html" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Projects</a></li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Plans</a></li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Books</a></li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Movies</a></li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Messages</a></li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Exercises</a></li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Habits</a></li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Shopping</a></li>
+							<li class="mt-2 md:mt-0">
+								<a href="profile.html" class="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150 ease-in-out">User</a>
+							</li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 		</header>
 
-		<div class="profile-layout">
-			<div class="container profile-content">
-				<div class="avatar-section">
-					<img src="./avatar.png" alt="User Avatar" class="avatar-img" />
-					<p class="avatar-name">Username</p>
-				</div>
+		<main class="py-10">
+			<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+				<section class="bg-white shadow-xl rounded-lg p-6 lg:p-10 mb-10">
+					<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+						<div class="lg:col-span-1 flex flex-col items-center border-b lg:border-b-0 lg:border-r border-gray-200 pb-6 lg:pb-0 lg:pr-8">
+							<img src="./avatar.png" alt="User Avatar" class="h-32 w-32 rounded-full object-cover ring-4 ring-indigo-500 mb-4" />
+							<p class="text-2xl font-semibold text-gray-700">Username</p>
+						</div>
 
-				<div class="button-group">
-					<button type="button" class="btn-status btn-success">Completed</button>
-					<button type="button" class="btn-status btn-danger">Pending</button>
-					<button type="button" class="btn-status btn-warning">In Progress</button>
-				</div>
+						<div class="lg:col-span-2">
+							<div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
+								<button type="button" class="px-5 py-2 text-white font-medium rounded-full transition duration-150 shadow-md bg-green-500 hover:bg-green-600">Completed</button>
+								<button type="button" class="px-5 py-2 text-white font-medium rounded-full transition duration-150 shadow-md bg-red-500 hover:bg-red-600">Pending</button>
+								<button type="button" class="px-5 py-2 text-white font-medium rounded-full transition duration-150 shadow-md bg-yellow-500 hover:bg-yellow-600">In Progress</button>
+							</div>
 
-				<div class="form-section">
-					<form class="profile-form">
-						<fieldset disabled>
-							<div class="form-field">
-								<label class="form-label">Username</label>
-								<input type="text" class="form-input" />
+							<form class="space-y-4">
+								<fieldset disabled class="space-y-4">
+									<div class="flex flex-col">
+										<label class="text-sm font-medium text-gray-600 mb-1">Username</label>
+										<input type="text" class="px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed" value="User Name" />
+									</div>
+									<div class="flex flex-col">
+										<label class="text-sm font-medium text-gray-600 mb-1">Email</label>
+										<input type="email" class="px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed" value="user@example.com" />
+									</div>
+									<div class="flex flex-col">
+										<label class="text-sm font-medium text-gray-600 mb-1">Password</label>
+										<input type="password" class="px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed" value="********" />
+									</div>
+									<div class="flex flex-col">
+										<label class="text-sm font-medium text-gray-600 mb-1">Register Date</label>
+										<input type="text" class="px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed" value="2024-01-01" />
+									</div>
+									<div class="flex flex-col">
+										<label class="text-sm font-medium text-gray-600 mb-1">Phone</label>
+										<input type="tel" class="px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed" value="123-456-7890" />
+									</div>
+								</fieldset>
+							</form>
+
+							<div class="flex justify-start space-x-4 mt-6">
+								<button type="button" class="px-6 py-2 text-white font-semibold rounded-lg shadow-md transition duration-150 bg-indigo-600 hover:bg-indigo-700">Update</button>
+								<button type="button" class="px-6 py-2 text-white font-semibold rounded-lg shadow-md transition duration-150 bg-red-600 hover:bg-red-700">Delete</button>
 							</div>
-							<div class="form-field">
-								<label class="form-label">Email</label>
-								<input type="text" class="form-input" />
-							</div>
-							<div class="form-field">
-								<label class="form-label">Password</label>
-								<input type="text" class="form-input" />
-							</div>
-							<div class="form-field">
-								<label class="form-label">Register Date</label>
-								<input type="text" class="form-input" />
-							</div>
-							<div class="form-field">
-								<label class="form-label">Phone</label>
-								<input type="text" class="form-input" />
-							</div>
-						</fieldset>
-					</form>
-					<div class="form-actions">
-						<button type="button" class="btn-form btn-primary">Update</button>
-						<button type="button" class="btn-form btn-danger">Delete</button>
+						</div>
 					</div>
-				</div>
+				</section>
+
+				<section class="mb-10 bg-white shadow-xl rounded-lg p-6 lg:p-10">
+					<h2 class="text-2xl font-bold text-gray-700 mb-4 border-b pb-2">Pending Activities</h2>
+					<div class="overflow-x-auto">
+						<table class="min-w-full divide-y divide-gray-200">
+							<caption class="sr-only">Summary of completed and pending activities</caption>
+							<thead class="bg-gray-50">
+								<tr>
+									<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Task</th>
+									<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+								</tr>
+							</thead>
+							<tbody class="bg-white divide-y divide-gray-200">
+								<tr>
+									<th scope="row" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Study HTML</th>
+									<td class="px-6 py-4 whitespace-nowrap">
+										<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Completed</span>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Design wireframe</th>
+									<td class="px-6 py-4 whitespace-nowrap">
+										<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">In progress</span>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Review CSS</th>
+									<td class="px-6 py-4 whitespace-nowrap">
+										<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Pending</span>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Test form</th>
+									<td class="px-6 py-4 whitespace-nowrap">
+										<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Pending</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+
+				<section class="mb-10 bg-white shadow-xl rounded-lg p-4">
+					<div class="aspect-w-16 aspect-h-9 w-full h-96">
+						<iframe class="w-full h-full rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.3133753637608!2d2.16687727655857!3d41.410715571296954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3ed552af55b%3A0x519ed8fb6d888ee8!2sILERNA%20Barcelona%20-%20Centre%20de%20Formaci%C3%B3%20Professional!5e0!3m2!1sen!2ses!4v1760121130134!5m2!1sen!2ses" allowfullscreen loading="lazy"></iframe>
+					</div>
+				</section>
+
+				<section class="pictures mb-10 overflow-hidden rounded-lg shadow-xl">
+					<picture>
+						<source srcset="img/imagen-movil.jpeg" media="(max-width: 600px)" />
+						<source srcset="img/imagen-tablet.jpeg" media="(max-width: 1024px)" />
+						<img src="img/imagen-escritorio.jpeg" alt="Imagen de escritorio" class="w-full h-auto object-cover" />
+					</picture>
+				</section>
 			</div>
-		</div>
+		</main>
 
-		<section class="container activity-table">
-			<h2 class="table-title">Pending Activities</h2>
-			<table class="data-table">
-				<caption>Summary of completed and pending activities</caption>
-				<thead>
-					<tr>
-						<th scope="col">Task</th>
-						<th scope="col">Status</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th scope="row">Study HTML</th>
-						<td>Completed</td>
-					</tr>
-					<tr>
-						<th scope="row">Design wireframe</th>
-						<td>In progress</td>
-					</tr>
-					<tr>
-						<th scope="row">Review CSS</th>
-						<td>Pending</td>
-					</tr>
-					<tr>
-						<th scope="row">Test form</th>
-						<td>Pending</td>
-					</tr>
-				</tbody>
-			</table>
-		</section>
-
-		<div class="container map-section">
-			<div class="map-container">
-				<iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.3133753637608!2d2.16687727655857!3d41.410715571296954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3ed552af55b%3A0x519ed8fb6d888ee8!2sILERNA%20Barcelona%20-%20Centre%20de%20Formaci%C3%B3%20Professional!5e0!3m2!1sen!2ses!4v1760121130134!5m2!1sen!2ses" allowfullscreen loading="lazy"></iframe>
-			</div>
-		</div>
-
-		<div class="pictures">
-			<picture>
-				<source srcset="img/imagen-movil.jpeg" media="(max-width: 600px)" />
-				<source srcset="img/imagen-tablet.jpeg" media="(max-width: 1024px)" />
-				<img src="img/imagen-escritorio.jpeg" alt="Imagen de escritorio" />
-			</picture>
-		</div>
-
-		<footer class="footer">
-			<div class="footer-container">
-				<span class="footer-text">
+		<footer class="mt-auto bg-white shadow-lg border-t border-gray-200">
+			<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row md:items-center md:justify-between">
+				<span class="text-sm text-gray-500 text-center md:text-left">
 					© 2025
-					<a href="#">My Life™</a>
+					<a href="#" class="hover:underline text-indigo-600 font-medium">My Life™</a>
 					. All Rights Reserved.
 				</span>
-
-				<ul class="footer-links">
-					<li>
-						<i class="icon-github"></i>
-						<a href="#">GitHub</a>
+				<ul class="flex flex-wrap items-center mt-4 md:mt-0 text-sm font-medium text-gray-500 justify-center md:justify-start gap-4">
+					<li class="flex items-center space-x-1 hover:text-indigo-600 transition duration-150">
+						<i class="fab fa-github"></i>
+						<a href="#" class="hover:underline">GitHub</a>
 					</li>
-					<li>
-						<i class="icon-linkedin"></i>
-						<a href="#">Linkedin</a>
+					<li class="flex items-center space-x-1 hover:text-indigo-600 transition duration-150">
+						<i class="fab fa-linkedin"></i>
+						<a href="#" class="hover:underline">Linkedin</a>
 					</li>
-					<li>
-						<i class="icon-email"></i>
-						<a href="#">Email</a>
+					<li class="flex items-center space-x-1 hover:text-indigo-600 transition duration-150">
+						<i class="fas fa-envelope"></i>
+						<a href="#" class="hover:underline">Email</a>
 					</li>
-					<li>
-						<i class="icon-phone"></i>
-						<a href="#">Contact</a>
+					<li class="flex items-center space-x-1 hover:text-indigo-600 transition duration-150">
+						<i class="fas fa-phone"></i>
+						<a href="#" class="hover:underline">Contact</a>
 					</li>
 				</ul>
 			</div>
 		</footer>
 
 		<script>
-			const toggleButton = document.querySelector(".menu-toggle");
-			const navLinks = document.getElementById("nav-menu"); // Usamos el ID
+			const toggleButton = document.getElementById("menu-toggle");
+			const navMenuWrapper = document.getElementById("nav-menu-wrapper");
 
 			toggleButton.addEventListener("click", () => {
-				navLinks.classList.toggle("active");
-				// Alternar aria-expanded para accesibilidad
+				navMenuWrapper.classList.toggle("hidden");
+
 				const isExpanded = toggleButton.getAttribute("aria-expanded") === "true" || false;
 				toggleButton.setAttribute("aria-expanded", !isExpanded);
+
+				
+				if (!navMenuWrapper.classList.contains("hidden")) {
+					navMenuWrapper.classList.add("absolute", "top-16", "left-0", "right-0", "bg-white", "shadow-lg", "py-2");
+				} else {
+					navMenuWrapper.classList.remove("absolute", "top-16", "left-0", "right-0", "bg-white", "shadow-lg", "py-2");
+				}
+			});
+
+			const navLinks = document.querySelectorAll("#nav-menu a");
+			navLinks.forEach((link) => {
+				link.addEventListener("click", () => {
+					if (!navMenuWrapper.classList.contains("hidden")) {
+						navMenuWrapper.classList.add("hidden");
+						toggleButton.setAttribute("aria-expanded", "false");
+					}
+				});
 			});
 		</script>
 	</body>
