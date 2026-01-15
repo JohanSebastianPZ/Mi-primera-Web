@@ -11,11 +11,27 @@
 
 	<body class="font-sans bg-gray-50 text-gray-800">
 		<header class="shadow-md bg-white sticky top-0 z-10">
+			<div id="google_translate_element"></div>
+
+			<script type="text/javascript">
+				function googleTranslateElementInit() {
+					new google.translate.TranslateElement(
+						{
+							pageLanguage: "es",
+							includedLanguages: "en,fr,it,pt,es", // Idiomas para seleccionar al momento de hacer la traduccion
+							layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+						},
+						"google_translate_element"
+					);
+				}
+			</script>
+			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 			<nav class="container mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="flex justify-between items-center h-16">
-					<div class="flex items-center space-x-2">
+					<div class="flex items-center space-x-2 shrink-0">
 						<img src="img/Logo.png" alt="Mi" class="h-8 w-8 rounded-full" />
-						<a href="#" class="text-xl font-bold">My Life</a>
+
+						<a href="#" class="text-xl font-bold hidden lg:block">My Life</a>
 					</div>
 
 					<button id="menu-toggle" class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -147,6 +163,49 @@
 						<img src="img/imagen-escritorio_optimized.png" alt="Imagen de escritorio" class="w-full h-auto object-cover" />
 					</picture>
 				</section>
+
+				<section class="mb-10 bg-white shadow-xl rounded-lg p-6 lg:p-10">
+					<h2 class="text-2xl font-bold text-gray-700 mb-6 border-b pb-2">Mi Pódcast</h2>
+
+					<div class="flex flex-col md:flex-row items-center gap-6 p-6 bg-gray-50 rounded-2xl border border-gray-100">
+						<div class="relative group">
+							<img src="img/Logo.png" alt="Podcast Cover" class="w-32 h-32 rounded-xl shadow-lg object-cover" />
+							<div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity rounded-xl flex items-center justify-center">
+								<i class="fas fa-microphone text-white text-xl"></i>
+							</div>
+						</div>
+
+						<div class="flex-1 w-full">
+							<div class="mb-4">
+								<span class="text-[#007AFF] text-xs font-bold uppercase tracking-wider">Episodio 01</span>
+								<h3 class="text-xl font-bold text-gray-800">Mi camino en el Desarrollo Web</h3>
+								<p class="text-sm text-gray-500 italic">Hablamos sobre optimización de recursos y UX.</p>
+							</div>
+
+							<audio id="main-audio">
+								<source src="audio/archivo-optimizado.ogg" type="audio/ogg" />
+								<source src="groovy-vibe-427121.mp3" type="audio/mpeg" />
+								Tu navegador no soporta el elemento de audio.
+							</audio>
+
+							<div class="flex items-center gap-4">
+								<button id="play-btn" class="flex items-center justify-center w-14 h-14 rounded-full bg-[#007AFF] text-white hover:bg-[#006FE6] transition-all transform hover:scale-105 shadow-lg">
+									<i id="play-icon" class="fas fa-play text-lg"></i>
+								</button>
+
+								<div class="flex-1">
+									<div class="flex justify-between text-xs text-gray-400 mb-1 font-mono">
+										<span id="current-time">0:00</span>
+										<span id="total-duration">1:23:00</span>
+									</div>
+									<div class="w-full bg-gray-200 rounded-full h-2 cursor-pointer group relative" id="progress-container">
+										<div id="progress-bar" class="bg-[#007AFF] h-2 rounded-full transition-all duration-100" style="width: 0%"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 			</div>
 		</main>
 
@@ -203,6 +262,26 @@
 						toggleButton.setAttribute("aria-expanded", "false");
 					}
 				});
+			});
+
+			const audio = document.getElementById("main-audio");
+			const playBtn = document.getElementById("play-btn");
+			const playIcon = document.getElementById("play-icon");
+			const progressBar = document.getElementById("progress-bar");
+
+			playBtn.addEventListener("click", () => {
+				if (audio.paused) {
+					audio.play();
+					playIcon.classList.replace("fa-play", "fa-pause");
+				} else {
+					audio.pause();
+					playIcon.classList.replace("fa-pause", "fa-play");
+				}
+			});
+
+			audio.addEventListener("timeupdate", () => {
+				const percentage = (audio.currentTime / audio.duration) * 100;
+				progressBar.style.width = percentage + "%";
 			});
 		</script>
 	</body>
