@@ -1,38 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>My Life</title>
 		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						keyframes: {
+							"entrada-suave": {
+								"0%": { transform: "scale(0) rotate(-180deg)", opacity: "0" },
+								"100%": { transform: "scale(1) rotate(0deg)", opacity: "1" },
+							},
+							latido: {
+								"0%, 100%": { transform: "scale(1)" },
+								"50%": { transform: "scale(1.15)" },
+							},
+						},
+						animation: {
+							// Animación de entrada al cargar
+							"logo-in": "entrada-suave 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+							// Animación de interacción (latido)
+							"logo-interactivo": "latido 0.6s ease-in-out infinite",
+						},
+					},
+				},
+			};
+		</script>
+
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 		<link rel="shortcut icon" href="img/Logo.png" type="image/x-icon" />
 	</head>
 
-	<body class="font-sans bg-gray-100 text-gray-800 min-h-screen flex flex-col">
-		<header class="shadow-md bg-white sticky top-0 z-20">
+	<body class="font-sans bg-gray-50 text-gray-800">
+		<header class="shadow-md bg-white sticky top-0 z-10">
+			<div id="google_translate_element"></div>
+			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 			<nav class="container mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="flex justify-between items-center h-16">
-					<div class="flex items-center space-x-2">
-						<img src="img/Logo.png" alt="Mi" class="h-8 w-8 rounded-full" />
-						<a href="#" class="text-xl font-bold">My Life</a>
+					<div class="flex items-center space-x-3 shrink-0 group cursor-pointer">
+						<a href="index.html" class="flex items-center">
+							<img src="img/Logo.png" alt="Mi" class="h-10 w-10 rounded-full shadow-md border-2 border-transparent transition-all duration-300 animate-logo-in group-hover:animate-logo-interactivo group-hover:border-blue-500 group-hover:shadow-blue-200" />
+						</a>
+
+						<a href="index.html" class="text-xl font-bold hidden lg:block text-gray-800 transition-colors duration-300 group-hover:text-blue-600">My Life</a>
 					</div>
 
 					<button id="menu-toggle" class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
 						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
 					</button>
 
-					<div id="nav-menu-wrapper" class="hidden md:block">
-						<ul id="nav-menu" class="flex flex-col md:flex-row md:space-x-4 lg:space-x-8 items-center">
-							<li class="p-2 md:p-0"><a href="index.html" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Projects</a></li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Plans</a></li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Books</a></li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Movies</a></li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Messages</a></li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Exercises</a></li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Habits</a></li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Shopping</a></li>
-							<li class="p-2 md:p-0"><a href="landingPage.html" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Landing Page</a></li>
+					<div id="nav-menu-wrapper" class="hidden opacity-0 transform -translate-y-2 scale-95 transition-all duration-300 ease-in-out">
+						<ul id="nav-menu" class="flex flex-col md:flex-row md:space-x-4 lg:space-x-8 items-center space-y-4 md:space-y-0 w-full p-4 md:p-0">
+							<li class="p-2 md:p-0">
+								<a href="index.html" class="text-blue-600 font-bold border-b-2 border-blue-600 transition-all duration-300">Projects</a>
+							</li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Plans</a></li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Books</a></li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Movies</a></li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Messages</a></li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Exercises</a></li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Habits</a></li>
+							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Shopping</a></li>
+							<li class="p-2 md:p-0"><a href="landingPage.html" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Landing Page</a></li>
 							<li class="mt-2 md:mt-0">
 								<a href="profile.html">
 									<button class="bg-[#007AFF] text-white px-6 py-2 text-base font-medium rounded-md hover:bg-[#006FE6] focus:outline-none focus:ring-2 focus:ring-[#66B2FF] transition-colors duration-200 shadow-md">User</button>
@@ -152,22 +184,54 @@
 			const toggleButton = document.getElementById("menu-toggle");
 			const navMenuWrapper = document.getElementById("nav-menu-wrapper");
 
-			if (toggleButton && navMenuWrapper) {
-				toggleButton.addEventListener("click", () => {
-					// Alternar la clase 'hidden'
-					navMenuWrapper.classList.toggle("hidden");
-
-					// Alternar la posición absoluta y estilos para móvil
-					const isExpanded = toggleButton.getAttribute("aria-expanded") === "true" || false;
-					toggleButton.setAttribute("aria-expanded", !isExpanded);
-
-					if (!navMenuWrapper.classList.contains("hidden")) {
-						navMenuWrapper.classList.add("absolute", "top-16", "left-0", "right-0", "bg-white", "shadow-lg", "py-2", "border-t", "z-10");
-					} else {
-						navMenuWrapper.classList.remove("absolute", "top-16", "left-0", "right-0", "bg-white", "shadow-lg", "py-2", "border-t", "z-10");
+			function checkResponsive() {
+				if (window.innerWidth >= 768) {
+					// En escritorio: Siempre visible y limpio de clases móviles
+					navMenuWrapper.classList.remove("hidden", "opacity-0", "-translate-y-2", "scale-95", "absolute", "w-full", "bg-white", "shadow-xl", "z-50", "p-6");
+					navMenuWrapper.classList.add("flex", "opacity-100", "translate-y-0", "scale-100");
+				} else {
+					// En móvil: Si no está expandido, ocultarlo
+					if (toggleButton.getAttribute("aria-expanded") === "false") {
+						navMenuWrapper.classList.add("hidden", "opacity-0", "-translate-y-2", "scale-95");
+						navMenuWrapper.classList.remove("flex", "opacity-100", "translate-y-0", "scale-100", "absolute", "w-full", "bg-white", "shadow-xl", "z-50", "p-6");
 					}
-				});
+				}
 			}
+
+			toggleButton.addEventListener("click", () => {
+				const isExpanded = toggleButton.getAttribute("aria-expanded") === "true";
+
+				if (!isExpanded) {
+					// ABRIR
+					navMenuWrapper.classList.remove("hidden");
+					// Aplicamos estilos de posición móvil
+					navMenuWrapper.classList.add("absolute", "top-16", "left-0", "w-full", "bg-white", "flex", "flex-col", "p-6", "shadow-2xl", "z-50");
+
+					// Usamos un timeout mínimo para permitir que el navegador note que ya no es 'hidden'
+					setTimeout(() => {
+						navMenuWrapper.classList.add("opacity-100", "translate-y-0", "scale-100");
+						navMenuWrapper.classList.remove("opacity-0", "-translate-y-2", "scale-95");
+					}, 10);
+
+					toggleButton.setAttribute("aria-expanded", "true");
+				} else {
+					// CERRAR
+					navMenuWrapper.classList.add("opacity-0", "-translate-y-2", "scale-95");
+					navMenuWrapper.classList.remove("opacity-100", "translate-y-0", "scale-100");
+
+					// Esperamos a que la animación de 300ms termine antes de poner 'hidden'
+					setTimeout(() => {
+						if (toggleButton.getAttribute("aria-expanded") === "false") {
+							navMenuWrapper.classList.add("hidden");
+						}
+					}, 300);
+
+					toggleButton.setAttribute("aria-expanded", "false");
+				}
+			});
+
+			window.addEventListener("resize", checkResponsive);
+			checkResponsive();
 		</script>
 	</body>
 </html>
