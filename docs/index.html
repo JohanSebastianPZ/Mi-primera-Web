@@ -1,237 +1,280 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>My Life</title>
-		<script src="https://cdn.tailwindcss.com"></script>
-		<script>
-			tailwind.config = {
-				theme: {
-					extend: {
-						keyframes: {
-							"entrada-suave": {
-								"0%": { transform: "scale(0) rotate(-180deg)", opacity: "0" },
-								"100%": { transform: "scale(1) rotate(0deg)", opacity: "1" },
-							},
-							latido: {
-								"0%, 100%": { transform: "scale(1)" },
-								"50%": { transform: "scale(1.15)" },
-							},
-						},
-						animation: {
-							// Animación de entrada al cargar
-							"logo-in": "entrada-suave 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
-							// Animación de interacción (latido)
-							"logo-interactivo": "latido 0.6s ease-in-out infinite",
-						},
-					},
-				},
-			};
-		</script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Life | Projects</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        keyframes: {
+                            "entrada-suave": {
+                                "0%": { transform: "scale(0) rotate(-180deg)", opacity: "0" },
+                                "100%": { transform: "scale(1) rotate(0deg)", opacity: "1" },
+                            },
+                            latido: {
+                                "0%, 100%": { transform: "scale(1)" },
+                                "50%": { transform: "scale(1.15)" },
+                            },
+                        },
+                        animation: {
+                            "logo-in": "entrada-suave 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+                            "logo-interactivo": "latido 0.6s ease-in-out infinite",
+                        },
+                    },
+                },
+            };
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+        <link rel="shortcut icon" href="img/Logo.png" type="image/x-icon" />
+    </head>
 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-		<link rel="shortcut icon" href="img/Logo.png" type="image/x-icon" />
-	</head>
+    <body class="font-sans bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+        <header class="shadow-sm bg-white sticky top-0 z-50">
+            <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-3 group cursor-pointer">
+                        <a href="index.html" class="flex items-center">
+                            <img
+                                src="img/Logo.png"
+                                alt="Logo"
+                                class="h-9 w-9 rounded-full shadow transition-transform duration-300 group-hover:scale-110 border border-gray-100"
+                            />
+                        </a>
+                        <a
+                            href="index.html"
+                            class="text-lg font-bold text-gray-800 group-hover:text-blue-600 transition-colors"
+                        >
+                            My Life
+                        </a>
+                    </div>
 
-	<body class="font-sans bg-gray-50 text-gray-800">
-		<header class="shadow-md bg-white sticky top-0 z-10">
-			<div id="google_translate_element"></div>
-			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-			<nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-				<div class="flex justify-between items-center h-16">
-					<div class="flex items-center space-x-3 shrink-0 group cursor-pointer">
-						<a href="index.html" class="flex items-center">
-							<img src="img/Logo.png" alt="Mi" class="h-10 w-10 rounded-full shadow-md border-2 border-transparent transition-all duration-300 animate-logo-in group-hover:animate-logo-interactivo group-hover:border-blue-500 group-hover:shadow-blue-200" />
-						</a>
+                    <button id="menu-toggle" class="md:hidden p-2 text-gray-500 hover:bg-gray-100 rounded-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"
+                            ></path>
+                        </svg>
+                    </button>
 
-						<a href="index.html" class="text-xl font-bold hidden lg:block text-gray-800 transition-colors duration-300 group-hover:text-blue-600">My Life</a>
-					</div>
+                    <div id="nav-menu-wrapper" class="hidden md:block">
+                        <ul id="nav-menu" class="flex flex-col md:flex-row md:space-x-4 lg:space-x-6 items-center">
+                            <li>
+                                <a
+                                    href="index.html"
+                                    class="text-sm font-bold text-blue-600 px-2 py-1 border-b-2 border-blue-600"
+                                >
+                                    Projects
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-gray-600 hover:text-blue-600 px-2 py-1">
+                                    Plans
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-gray-600 hover:text-blue-600 px-2 py-1">
+                                    Books
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="landingPage.html"
+                                    class="text-sm font-medium text-gray-600 hover:text-blue-600 px-2 py-1"
+                                >
+                                    Landing
+                                </a>
+                            </li>
+                            <li class="ml-2">
+                                <a
+                                    href="profile.html"
+                                    class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 shadow-md transition-all active:scale-95"
+                                >
+                                    User
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
-					<button id="menu-toggle" class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
-						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-					</button>
+        <main class="flex-grow py-8">
+            <div class="container mx-auto px-4 max-w-7xl flex flex-col md:flex-row gap-8">
+                <aside class="w-full md:w-64 flex-shrink-0 self-start">
+                    <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-6">
+                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Quick Actions</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-1 gap-3">
+                            <button
+                                class="flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white text-sm font-bold rounded-xl hover:bg-blue-700 transition shadow-sm active:scale-95"
+                            >
+                                <i class="fas fa-plus"></i>
+                                New Task
+                            </button>
+                            <button
+                                class="flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-200 text-gray-600 text-sm font-bold rounded-xl hover:bg-gray-50 transition active:scale-95"
+                            >
+                                <i class="fas fa-file-export"></i>
+                                Export
+                            </button>
+                        </div>
 
-					<div id="nav-menu-wrapper" class="hidden opacity-0 transform -translate-y-2 scale-95 transition-all duration-300 ease-in-out">
-						<ul id="nav-menu" class="flex flex-col md:flex-row md:space-x-4 lg:space-x-8 items-center space-y-4 md:space-y-0 w-full p-4 md:p-0">
-							<li class="p-2 md:p-0">
-								<a href="index.html" class="text-blue-600 font-bold border-b-2 border-blue-600 transition-all duration-300">Projects</a>
-							</li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Plans</a></li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Books</a></li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Movies</a></li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Messages</a></li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Exercises</a></li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Habits</a></li>
-							<li class="p-2 md:p-0"><a href="#" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Shopping</a></li>
-							<li class="p-2 md:p-0"><a href="landingPage.html" class="text-gray-600 transition-all duration-300 ease-in-out hover:text-blue-600 hover:pl-2 active:scale-95 border-b-2 border-transparent hover:border-blue-600">Landing Page</a></li>
-							<li class="mt-2 md:mt-0">
-								<a href="profile.html">
-									<button class="bg-[#007AFF] text-white px-6 py-2 text-base font-medium rounded-md hover:bg-[#006FE6] focus:outline-none focus:ring-2 focus:ring-[#66B2FF] transition-colors duration-200 shadow-md">User</button>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</header>
+                        <div class="mt-8">
+                            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
+                                Project Stats
+                            </h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600">Total Progress</span>
+                                    <span class="text-sm font-bold text-blue-600">65%</span>
+                                </div>
+                                <div class="w-full bg-gray-100 rounded-full h-1.5">
+                                    <div class="bg-blue-600 h-1.5 rounded-full" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
 
-		<div class="flex flex-col md:flex-row flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-6 gap-6">
-			<aside class="w-full md:w-56 bg-white p-4 rounded-lg shadow-lg flex-shrink-0 mb-6 md:mb-0 self-start">
-				<h3 class="text-lg font-bold text-gray-700 mb-4 border-b pb-2">Actions</h3>
-				<ul class="space-y-3">
-					<li>
-						<a href="#" class="block w-full text-center px-4 py-2 bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition duration-150 shadow-sm">Create</a>
-					</li>
-					<li>
-						<a href="#" class="block w-full text-center px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition duration-150 shadow-sm">Read</a>
-					</li>
-					<li>
-						<a href="#" class="block w-full text-center px-4 py-2 bg-yellow-500 text-white font-semibold rounded-md hover:bg-yellow-600 transition duration-150 shadow-sm">Update</a>
-					</li>
-					<li>
-						<a href="#" class="block w-full text-center px-4 py-2 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600 transition duration-150 shadow-sm">Delete</a>
-					</li>
-				</ul>
-			</aside>
+                <section class="flex-grow grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center justify-between px-2">
+                            <h2 class="font-bold text-gray-700 flex items-center gap-2">
+                                <span class="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                                To Do
+                            </h2>
+                            <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2 py-0.5 rounded-full">
+                                3
+                            </span>
+                        </div>
+                        <div class="space-y-4">
+                            <div
+                                class="bg-white border border-gray-100 p-4 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer group"
+                            >
+                                <div class="flex items-start gap-3">
+                                    <input
+                                        type="checkbox"
+                                        class="mt-1 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                    />
+                                    <div>
+                                        <p class="text-sm font-semibold text-gray-800">Study HTML Semantic</p>
+                                        <p class="text-xs text-gray-400 mt-1">Due: Tomorrow</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-white border border-gray-100 p-4 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer group"
+                            >
+                                <div class="flex items-start gap-3">
+                                    <input
+                                        type="checkbox"
+                                        class="mt-1 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                    />
+                                    <div>
+                                        <p class="text-sm font-semibold text-gray-800">Review Tailwind Grid</p>
+                                        <p class="text-xs text-gray-400 mt-1">High Priority</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-			<section class="flex-grow grid grid-cols-1 md:grid-cols-3 gap-6 overflow-x-auto">
-				<div class="min-w-[280px] bg-white rounded-lg shadow-xl border border-gray-200 h-fit">
-					<div class="bg-indigo-100 text-indigo-700 p-4 font-bold text-lg rounded-t-lg border-b border-indigo-200">DO</div>
-					<ul class="p-4 space-y-3">
-						<li class="flex items-center space-x-2 bg-gray-50 p-3 rounded-md shadow-sm border border-gray-200">
-							<input type="checkbox" id="checkbox1" class="text-indigo-600 focus:ring-indigo-500 rounded border-gray-300" />
-							<label for="checkbox1" class="text-gray-700 font-medium flex-grow">First task to do</label>
-						</li>
-						<li class="flex items-center space-x-2 bg-gray-50 p-3 rounded-md shadow-sm border border-gray-200">
-							<input type="checkbox" id="checkbox2" class="text-indigo-600 focus:ring-indigo-500 rounded border-gray-300" />
-							<label for="checkbox2" class="text-gray-700 font-medium flex-grow">Second task to do</label>
-						</li>
-						<li class="flex items-center space-x-2 bg-gray-50 p-3 rounded-md shadow-sm border border-gray-200">
-							<input type="checkbox" id="checkbox3" class="text-indigo-600 focus:ring-indigo-500 rounded border-gray-300" />
-							<label for="checkbox3" class="text-gray-700 font-medium flex-grow">Third task to do</label>
-						</li>
-					</ul>
-				</div>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center justify-between px-2">
+                            <h2 class="font-bold text-gray-700 flex items-center gap-2">
+                                <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                                In Progress
+                            </h2>
+                            <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-0.5 rounded-full">
+                                1
+                            </span>
+                        </div>
+                        <div class="space-y-4">
+                            <div
+                                class="bg-white border border-gray-100 p-4 rounded-xl shadow-sm border-l-4 border-l-yellow-400"
+                            >
+                                <div class="flex items-start gap-3">
+                                    <input
+                                        type="checkbox"
+                                        class="mt-1 rounded border-gray-300 text-yellow-600 focus:ring-yellow-500"
+                                    />
+                                    <div>
+                                        <p class="text-sm font-semibold text-gray-800">jQuery Logic Refactor</p>
+                                        <div class="flex gap-2 mt-2">
+                                            <span
+                                                class="text-[10px] bg-gray-100 px-2 py-0.5 rounded text-gray-500 font-bold uppercase tracking-tighter"
+                                            >
+                                                Code
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-				<div class="min-w-[280px] bg-white rounded-lg shadow-xl border border-gray-200 h-fit">
-					<div class="bg-yellow-100 text-yellow-700 p-4 font-bold text-lg rounded-t-lg border-b border-yellow-200">DOING</div>
-					<ul class="p-4 space-y-3">
-						<li class="flex items-center space-x-2 bg-gray-50 p-3 rounded-md shadow-sm border border-gray-200">
-							<input type="checkbox" id="checkbox4" class="text-yellow-600 focus:ring-yellow-500 rounded border-gray-300" />
-							<label for="checkbox4" class="text-gray-700 font-medium flex-grow">First task in progress</label>
-						</li>
-						<li class="flex items-center space-x-2 bg-gray-50 p-3 rounded-md shadow-sm border border-gray-200">
-							<input type="checkbox" id="checkbox5" class="text-yellow-600 focus:ring-yellow-500 rounded border-gray-300" />
-							<label for="checkbox5" class="text-gray-700 font-medium flex-grow">Second task in progress</label>
-						</li>
-						<li class="flex items-center space-x-2 bg-gray-50 p-3 rounded-md shadow-sm border border-gray-200">
-							<input type="checkbox" id="checkbox6" class="text-yellow-600 focus:ring-yellow-500 rounded border-gray-300" />
-							<label for="checkbox6" class="text-gray-700 font-medium flex-grow">Third task in progress</label>
-						</li>
-					</ul>
-				</div>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center justify-between px-2">
+                            <h2 class="font-bold text-gray-700 flex items-center gap-2">
+                                <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                                Completed
+                            </h2>
+                            <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">
+                                2
+                            </span>
+                        </div>
+                        <div class="space-y-4 opacity-75">
+                            <div class="bg-gray-50 border border-gray-100 p-4 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <input
+                                        type="checkbox"
+                                        checked
+                                        class="mt-1 rounded border-gray-300 text-green-600 focus:ring-green-500"
+                                    />
+                                    <p class="text-sm font-medium text-gray-500 line-through">Profile Page Redesign</p>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 border border-gray-100 p-4 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <input
+                                        type="checkbox"
+                                        checked
+                                        class="mt-1 rounded border-gray-300 text-green-600 focus:ring-green-500"
+                                    />
+                                    <p class="text-sm font-medium text-gray-500 line-through">
+                                        Navigation Bar Animation
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
 
-				<div class="min-w-[280px] bg-white rounded-lg shadow-xl border border-gray-200 h-fit">
-					<div class="bg-green-100 text-green-700 p-4 font-bold text-lg rounded-t-lg border-b border-green-200">DONE</div>
-					<ul class="p-4 space-y-3">
-						<li class="flex items-center space-x-2 bg-gray-50 p-3 rounded-md shadow-sm border border-gray-200">
-							<input type="checkbox" id="checkbox7" checked class="text-green-600 focus:ring-green-500 rounded border-gray-300" />
-							<label for="checkbox7" class="text-gray-700 font-medium flex-grow line-through">First completed task</label>
-						</li>
-						<li class="flex items-center space-x-2 bg-gray-50 p-3 rounded-md shadow-sm border border-gray-200">
-							<input type="checkbox" id="checkbox8" checked class="text-green-600 focus:ring-green-500 rounded border-gray-300" />
-							<label for="checkbox8" class="text-gray-700 font-medium flex-grow line-through">Second completed task</label>
-						</li>
-						<li class="flex items-center space-x-2 bg-gray-50 p-3 rounded-md shadow-sm border border-gray-200">
-							<input type="checkbox" id="checkbox9" checked class="text-green-600 focus:ring-green-500 rounded border-gray-300" />
-							<label for="checkbox9" class="text-gray-700 font-medium flex-grow line-through">Third completed task</label>
-						</li>
-					</ul>
-				</div>
-			</section>
-		</div>
+        <footer class="bg-white border-t border-gray-200 py-8">
+            <div
+                class="container mx-auto px-4 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4"
+            >
+                <p class="text-sm text-gray-500">
+                    © 2025
+                    <span class="font-bold text-blue-600">My Life™</span>
+                    . All Rights Reserved.
+                </p>
+                <div class="flex gap-6 text-gray-400">
+                    <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-github"></i></a>
+                    <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-blue-600 transition"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </footer>
 
-		<footer class="mt-auto bg-white shadow-lg border-t border-gray-200">
-			<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0">
-				<span class="text-sm text-gray-500 text-center md:text-left">
-					© 2025
-					<a href="#" class="hover:underline text-indigo-600 font-medium">My Life™</a>
-					. All Rights Reserved.
-				</span>
-				<ul class="flex flex-wrap items-center text-sm font-medium text-gray-500 justify-center md:justify-start gap-4">
-					<li class="flex items-center space-x-1 hover:text-indigo-600 transition duration-150">
-						<i class="fab fa-github"></i>
-						<a href="#" class="hover:underline">GitHub</a>
-					</li>
-					<li class="flex items-center space-x-1 hover:text-indigo-600 transition duration-150">
-						<i class="fab fa-linkedin"></i>
-						<a href="#" class="hover:underline">Linkedin</a>
-					</li>
-					<li class="flex items-center space-x-1 hover:text-indigo-600 transition duration-150">
-						<i class="fas fa-envelope"></i>
-						<a href="#" class="hover:underline">Email</a>
-					</li>
-					<li class="flex items-center space-x-1 hover:text-indigo-600 transition duration-150">
-						<i class="fas fa-phone"></i>
-						<a href="#" class="hover:underline">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</footer>
-
-		<script>
-			const toggleButton = document.getElementById("menu-toggle");
-			const navMenuWrapper = document.getElementById("nav-menu-wrapper");
-
-			function checkResponsive() {
-				if (window.innerWidth >= 768) {
-					// En escritorio: Siempre visible y limpio de clases móviles
-					navMenuWrapper.classList.remove("hidden", "opacity-0", "-translate-y-2", "scale-95", "absolute", "w-full", "bg-white", "shadow-xl", "z-50", "p-6");
-					navMenuWrapper.classList.add("flex", "opacity-100", "translate-y-0", "scale-100");
-				} else {
-					// En móvil: Si no está expandido, ocultarlo
-					if (toggleButton.getAttribute("aria-expanded") === "false") {
-						navMenuWrapper.classList.add("hidden", "opacity-0", "-translate-y-2", "scale-95");
-						navMenuWrapper.classList.remove("flex", "opacity-100", "translate-y-0", "scale-100", "absolute", "w-full", "bg-white", "shadow-xl", "z-50", "p-6");
-					}
-				}
-			}
-
-			toggleButton.addEventListener("click", () => {
-				const isExpanded = toggleButton.getAttribute("aria-expanded") === "true";
-
-				if (!isExpanded) {
-					// ABRIR
-					navMenuWrapper.classList.remove("hidden");
-					// Aplicamos estilos de posición móvil
-					navMenuWrapper.classList.add("absolute", "top-16", "left-0", "w-full", "bg-white", "flex", "flex-col", "p-6", "shadow-2xl", "z-50");
-
-					// Usamos un timeout mínimo para permitir que el navegador note que ya no es 'hidden'
-					setTimeout(() => {
-						navMenuWrapper.classList.add("opacity-100", "translate-y-0", "scale-100");
-						navMenuWrapper.classList.remove("opacity-0", "-translate-y-2", "scale-95");
-					}, 10);
-
-					toggleButton.setAttribute("aria-expanded", "true");
-				} else {
-					// CERRAR
-					navMenuWrapper.classList.add("opacity-0", "-translate-y-2", "scale-95");
-					navMenuWrapper.classList.remove("opacity-100", "translate-y-0", "scale-100");
-
-					// Esperamos a que la animación de 300ms termine antes de poner 'hidden'
-					setTimeout(() => {
-						if (toggleButton.getAttribute("aria-expanded") === "false") {
-							navMenuWrapper.classList.add("hidden");
-						}
-					}, 300);
-
-					toggleButton.setAttribute("aria-expanded", "false");
-				}
-			});
-
-			window.addEventListener("resize", checkResponsive);
-			checkResponsive();
-		</script>
-	</body>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="jquery.js"></script>
+    </body>
 </html>
