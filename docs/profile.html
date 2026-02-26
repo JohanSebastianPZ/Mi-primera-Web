@@ -7,6 +7,20 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
         <link rel="shortcut icon" href="img/Logo.png" type="image/x-icon" />
+        <!--Aqui agrego el plugin jsdelivr-->
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.min.js"></script>
+        <style>
+            /* Ajuste para que el calendario combine con tu diseño */
+            .fc {
+                --fc-button-bg-color: #2563eb;
+                --fc-button-border-color: #2563eb;
+            }
+            .fc .fc-toolbar-title {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: #1f2937;
+            }
+        </style>
     </head>
 
     <body class="font-sans bg-gray-50 text-gray-900 flex flex-col min-h-screen">
@@ -91,9 +105,10 @@
                         >
                             <div class="relative">
                                 <img
+                                    id="user-img"
                                     src="./avatar.png"
                                     alt="User Avatar"
-                                    class="h-32 w-32 rounded-full object-cover ring-4 ring-white shadow-lg mb-4"
+                                    class="hidden h-32 w-32 rounded-full object-cover ring-4 ring-white shadow-lg mb-4"
                                 />
                                 <span
                                     class="absolute bottom-6 right-2 w-5 h-5 bg-green-500 border-4 border-white rounded-full"
@@ -106,6 +121,7 @@
                         <div class="lg:col-span-2 p-8">
                             <div class="flex flex-wrap gap-3 mb-8">
                                 <span
+                                    id="content"
                                     class="px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider"
                                 >
                                     Completed: 12
@@ -163,11 +179,13 @@
 
                             <div class="mt-8 flex gap-3">
                                 <button
+                                    id="edit-profile"
                                     class="px-6 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition shadow-sm"
                                 >
                                     Edit Profile
                                 </button>
                                 <button
+                                    id="btn-delete-user"
                                     class="px-6 py-2 border border-red-200 text-red-600 rounded-lg font-medium hover:bg-red-50 transition"
                                 >
                                     Delete
@@ -176,8 +194,45 @@
                         </div>
                     </div>
                 </section>
+                <section class="mb-10 bg-white shadow-sm border border-gray-100 rounded-2xl p-6 lg:p-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+                            <i class="fas fa-sticky-note text-yellow-500"></i>
+                            Mis Notas
+                        </h2>
+                        <span id="char-count" class="text-xs text-gray-400 font-medium">0 caracteres</span>
+                    </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    <textarea
+                        id="personal-notes"
+                        rows="5"
+                        class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none resize-none"
+                        placeholder="Escribe aquí tus recordatorios o ideas..."
+                    ></textarea>
+
+                    <div class="flex justify-end mt-4 gap-3">
+                        <button
+                            id="clear-notes"
+                            class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-red-600 transition"
+                        >
+                            Limpiar
+                        </button>
+                        <button
+                            id="save-notes"
+                            class="px-6 py-2 bg-blue-600 text-white rounded-lg text-sm font-bold hover:bg-blue-700 shadow-sm transition active:scale-95"
+                        >
+                            Guardar Nota
+                        </button>
+                    </div>
+                </section>
+                <section class="mb-10 bg-white shadow-sm border border-gray-100 rounded-2xl p-6 lg:p-8">
+                    <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <i class="fas fa-calendar-alt text-blue-500"></i>
+                        Mi Agenda
+                    </h2>
+                    <div id="calendar-plugin" class="min-h-[500px]"></div>
+                </section>
+                <div class="grid grid-cols-1 gap-8 mb-8">
                     <section class="bg-white shadow-sm border border-gray-100 rounded-2xl p-6">
                         <h2 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
                             <i class="fas fa-list-check text-blue-500"></i>
@@ -193,7 +248,7 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-gray-50">
+                                <tbody id="pending-activities" class="divide-y divide-gray-50">
                                     <tr>
                                         <td class="py-3 text-sm font-medium">Study HTML Semantic</td>
                                         <td class="py-3 text-right">
@@ -216,17 +271,25 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <button
+                                id="btn-add-task"
+                                class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition mt-4"
+                            >
+                                Add task
+                            </button>
+                            <button
+                                id="btn-remove-last-task"
+                                class="px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-medium hover:bg-red-700 transition mt-4"
+                            >
+                                Remove last task
+                            </button>
                         </div>
                     </section>
-
+                    <!--Aqui tengo que comentar el mapa porque se demora en cargar
                     <section class="bg-white shadow-sm border border-gray-100 rounded-2xl overflow-hidden h-[300px]">
-                        <iframe
-                            class="w-full h-full"
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15863.385412497675!2d-75.567!3d6.267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
-                            allowfullscreen
-                            loading="lazy"
-                        ></iframe>
+                        <iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15863.385412497675!2d-75.567!3d6.267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco" allowfullscreen loading="lazy"></iframe>
                     </section>
+                    --->
                 </div>
 
                 <section class="bg-white shadow-sm border border-gray-100 rounded-2xl p-6 lg:p-8">
@@ -235,7 +298,12 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                         <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                             <div class="flex items-center gap-4 mb-6">
-                                <img src="img/Logo.png" class="w-16 h-16 rounded-xl shadow-md" alt="Cover" />
+                                <img
+                                    id="logo-podcast"
+                                    src="img/Logo.png"
+                                    class="w-16 h-16 rounded-xl shadow-md"
+                                    alt="Cover"
+                                />
                                 <div>
                                     <h3 class="font-bold text-gray-800">Mi camino Dev</h3>
                                     <p class="text-xs text-blue-600 font-medium uppercase tracking-tighter">
@@ -258,13 +326,14 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!--
                         <div class="rounded-xl overflow-hidden shadow-sm border border-gray-100">
                             <video controls poster="img/caratula.png" class="w-full aspect-video bg-black">
                                 <source src="img/ejercicio.mp4" type="video/mp4" />
                                 Tu navegador no soporta video.
                             </video>
                         </div>
+                        -->
                     </div>
                 </section>
             </div>
